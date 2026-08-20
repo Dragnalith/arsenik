@@ -6,6 +6,7 @@
   a    s    d    f    g         h    j    k    l    ;
   z    x    c    v    b    <    n    m    ,    .    /
             @alt          @nav            @sym
+  @sym         @sym         bspc    lalt
 )
 
 ;; Timing variables are defined in `kanata.kbd` file.

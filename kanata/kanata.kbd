@@ -21,6 +21,10 @@
   long_hold_timeout 300
 )
 
+(deflocalkeys-wintercept
+  mykana 241
+)
+
 ;;-----------------------------------------------------------------------------
 ;; Original key arrangement on your keyboard: Mac or PC.
 ;; Choose here if you want to add an angle mod: ZXCVB are shifted to the left.
@@ -38,8 +42,8 @@
 ;; `Base` layer: standard or dual keys? (layer-taps, homerow mods?)
 ;; If you just want angle mod, you still have to enable the standard base.
 
-(include deflayer/base.kbd)  ;; standard keyboard behavior
-;; (include deflayer/base_lt.kbd)  ;; layer-taps on both thumb keys
+;; (include deflayer/base.kbd)  ;; standard keyboard behavior
+(include deflayer/base_lt.kbd)  ;; layer-taps on both thumb keys
 ;; (include deflayer/base_lt_hrm.kbd)  ;; layer-taps + home-row mods
 
 ;; Note: not enabling layer-taps here makes the rest of the file useless.
@@ -48,10 +52,10 @@
 ;;-----------------------------------------------------------------------------
 ;; `Symbols` layer
 
-(include deflayer/symbols_noop.kbd)  ;; AltGr stays as-is
+;; (include deflayer/symbols_noop.kbd)  ;; AltGr stays as-is
 ;; (include deflayer/symbols_lafayette.kbd)  ;; AltGr programmation layer like Ergo‑L
 ;; (include deflayer/symbols_noop_num.kbd)  ;; AltGr stays as-is + NumRow layers
-;; (include deflayer/symbols_lafayette_num.kbd)  ;; AltGr prog layer + NumRow layers
+(include deflayer/symbols_lafayette_num.kbd)  ;; AltGr prog layer + NumRow layers
 
 
 ;;-----------------------------------------------------------------------------

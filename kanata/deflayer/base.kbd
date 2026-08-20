@@ -6,6 +6,7 @@
   a    s    d    f    g         h    j    k    l    ;
   z    x    c    v    b    <    n    m    ,    .    /
             _              _              _
+  ralt         ralt         bspc    lalt
 )
 
 ;; vim: set ft=lisp
