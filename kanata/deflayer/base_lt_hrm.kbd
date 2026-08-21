@@ -7,7 +7,7 @@
   q    w    e    r    t         y    u    i    o    p
   @aa  @ss  @dd  @ff  g         h    @jj  @kk  @ll  @scln
   z    x    c    v    b    <    n    m    ,    .    /
-            lsft          @nav            @sym
+            @sft          @nav            @sym
   @sym         @sym         bspc    lsft
 )
 
@@ -19,6 +19,9 @@
   ;; held Shift so applications receive a bare Del, not Shift+Del.
   spcdel (fork spc (unmod del) (lsft rsft))
   nav (tap-hold $tap_timeout $long_hold_timeout @spcdel (layer-while-held navigation))
+
+  ;; Space-cadet left thumb: Shift when held, BackSpace when tapped.
+  sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
 
   ;; Space-cadet AltGr thumb key: Symbols layer when held, Enter when tapped.
   sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
