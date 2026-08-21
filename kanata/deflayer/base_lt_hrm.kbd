@@ -5,19 +5,20 @@
   q    w    e    r    t         y    u    i    o    p
   a    @ss  @dd  @ff  g         h    @jj  @kk  @ll  ;
   z    x    c    v    b    <    n    m    ,    .    /
-            @sft          @nav            @sym
-  @sym         @sym         bspc    lalt
+            lsft          @nav            @sym
+  @sym         @sym         bspc    lsft
 )
 
 ;; Timing variables are defined in `kanata.kbd` file.
 
 (defalias
   ;; Main mod-tap: Nav layer when held, Space when tapped.
-  nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
+  ;; A tap while Shift is held gives Delete instead of Space. `unmod` drops the
+  ;; held Shift so applications receive a bare Del, not Shift+Del.
+  spcdel (fork spc (unmod del) (lsft rsft))
+  nav (tap-hold $tap_timeout $long_hold_timeout @spcdel (layer-while-held navigation))
 
-  ;; Space-cadet thumb keys: Shift/BackSpace, AltGr/Enter.
-  ;; Acts as a modifier by default, or as BackSpace/Enter when tapped separately.
-  sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
+  ;; Space-cadet AltGr thumb key: Symbols layer when held, Enter when tapped.
   sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
 
   ;; Home-row mods
