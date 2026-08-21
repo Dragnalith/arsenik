@@ -1,9 +1,11 @@
-;; Base layer: layer-taps under the thumbs + home-row mods on SDF and JKL
+;; Base layer: layer-taps under the thumbs + home-row mods in GACS order
+;; Left  hand: A=Gui  S=Alt  D=Shift  F=Ctrl
+;; Right hand: J=Ctrl  K=Shift  L=Alt  ;=Gui
 
 (deflayer base
   _    _    _    _    _    _    _    _    _    _    _
   q    w    e    r    t         y    u    i    o    p
-  a    @ss  @dd  @ff  g         h    @jj  @kk  @ll  ;
+  @aa  @ss  @dd  @ff  g         h    @jj  @kk  @ll  @scln
   z    x    c    v    b    <    n    m    ,    .    /
             lsft          @nav            @sym
   @sym         @sym         bspc    lsft
@@ -21,13 +23,17 @@
   ;; Space-cadet AltGr thumb key: Symbols layer when held, Enter when tapped.
   sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
 
-  ;; Home-row mods
-  ss (tap-hold $tap_timeout $long_hold_timeout s lmet)
-  dd (tap-hold $tap_timeout $long_hold_timeout d lctl)
-  ff (tap-hold $tap_timeout $long_hold_timeout f lalt)
-  jj (tap-hold $tap_timeout $long_hold_timeout j lalt)
-  kk (tap-hold $tap_timeout $long_hold_timeout k rctl)
-  ll (tap-hold $tap_timeout $long_hold_timeout l rmet)
+  ;; Home-row mods, GASC order (Gui / Alt / Shift / Ctrl, outer to inner).
+  ;; `lalt` is used on both hands: `ralt` is AltGr on Windows and would fire
+  ;; the layout's symbol layer instead of acting as a plain Alt.
+  aa (tap-hold $tap_timeout $long_hold_timeout a lmet)
+  ss (tap-hold $tap_timeout $long_hold_timeout s lalt)
+  dd (tap-hold $tap_timeout $long_hold_timeout d lsft)
+  ff (tap-hold $tap_timeout $long_hold_timeout f lctl)
+  jj (tap-hold $tap_timeout $long_hold_timeout j rctl)
+  kk (tap-hold $tap_timeout $long_hold_timeout k rsft)
+  ll (tap-hold $tap_timeout $long_hold_timeout l lalt)
+  scln (tap-hold $tap_timeout $long_hold_timeout ; rmet)
 )
 
 ;; vim: set ft=lisp
