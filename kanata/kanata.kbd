@@ -90,8 +90,9 @@
 ;;-----------------------------------------------------------------------------
 ;; Chords: press several keys at once to get another action.
 ;; Keys are named after their physical position (`defsrc`):
+;;   `k` and `l` are the right-hand middle/ring home-row keys
+;;   `s` and `d` are the left-hand ring/middle home-row keys
 ;;   `,` and `.` are the two keys engraved `<` and `>` at the bottom right
-;;   `x` and `c` are the usual letter keys
 ;; The chords are ignored on the layers listed at the end, where those keys
 ;; hold symbols, digits, or Cut/Copy — drop `numrow` from that list if you
 ;; switch to a `symbols_*` variant without NumRow.
@@ -113,8 +114,9 @@
 )
 
 (defchordsv2
-  (, .) @chret $chord_timeout first-release (symbols numrow navigation)
-  (x c) esc $chord_timeout first-release (symbols numrow navigation)
+  (k l) @chret $chord_timeout first-release (symbols numrow navigation)
+  (s d) esc $chord_timeout first-release (symbols numrow navigation)
+  (, .) (caps-word-toggle 5000) $chord_timeout first-release (symbols numrow navigation)
 )
 
 
