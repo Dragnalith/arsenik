@@ -96,9 +96,24 @@
 ;; hold symbols, digits, or Cut/Copy — drop `numrow` from that list if you
 ;; switch to a `symbols_*` variant without NumRow.
 ;; Requires Kanata 1.8+; older versions name it `defchordsv2-experimental`.
+;;
+;; Enter goes through a virtual key so it interrupts tap-hold Shift (D/K or
+;; left thumb). A raw `ret` chord is processed outside that wait, so a fast
+;; Shift+Enter sent Enter instead of Shift+Enter.
+
+(defvirtualkeys
+  ent ret
+)
+
+(defalias
+  chret (multi
+    (on-press press-vkey ent)
+    (on-release release-vkey ent)
+  )
+)
 
 (defchordsv2
-  (, .) ret $chord_timeout first-release (symbols numrow navigation)
+  (, .) @chret $chord_timeout first-release (symbols numrow navigation)
   (x c) esc $chord_timeout first-release (symbols numrow navigation)
 )
 
