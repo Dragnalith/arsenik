@@ -116,7 +116,7 @@
 (defchordsv2
   (k l) @chret $chord_timeout first-release (symbols numrow navigation)
   (s d) esc $chord_timeout first-release (symbols numrow navigation)
-  (, .) (caps-word-toggle 5000) $chord_timeout first-release (symbols numrow navigation)
+  (, .) @capw $chord_timeout first-release (symbols numrow navigation)
 )
 
 
