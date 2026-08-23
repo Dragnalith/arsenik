@@ -23,8 +23,9 @@
   ;; Space-cadet left thumb: Shift when held, BackSpace when tapped.
   sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
 
-  ;; Space-cadet AltGr thumb key: Symbols layer when held, Enter when tapped.
-  sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
+  ;; AltGr thumb key: Symbols layer while held, nothing when tapped.
+  ;; Enter is the [,]+[.] chord, see `kanata.kbd`.
+  sym (layer-while-held symbols)
 
   ;; Home-row mods, GASC order (Gui / Alt / Shift / Ctrl, outer to inner).
   ;; `lalt` is used on both hands: `ralt` is AltGr on Windows and would fire

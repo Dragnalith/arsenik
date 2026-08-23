@@ -19,6 +19,8 @@
   hold_timeout 200
   ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
   long_hold_timeout 300
+  ;; Both keys of a chord must be pressed within this delay.
+  chord_timeout 40
 )
 
 (deflocalkeys-wintercept
@@ -84,6 +86,23 @@
 ;; (include defalias/bepo_pc.kbd)  ;; Bépo PC
 ;; (include defalias/optimot_pc.kbd)  ;; Optimot PC
 
+
+;;-----------------------------------------------------------------------------
+;; Chords: press several keys at once to get another action.
+;; Keys are named after their physical position (`defsrc`):
+;;   `,` and `.` are the two keys engraved `<` and `>` at the bottom right
+;;   `x` and `c` are the usual letter keys
+;; The chords are ignored on the layers listed at the end, where those keys
+;; hold symbols, digits, or Cut/Copy — drop `numrow` from that list if you
+;; switch to a `symbols_*` variant without NumRow.
+;; Requires Kanata 1.8+; older versions name it `defchordsv2-experimental`.
+
+(defchordsv2
+  (, .) ret $chord_timeout first-release (symbols numrow navigation)
+  (x c) esc $chord_timeout first-release (symbols numrow navigation)
+)
+
+
 ;;-----------------------------------------------------------------------------
 ;; Extra configuration
 ;; You should not modify this, only if you need to.
@@ -93,6 +112,8 @@
   ;; Fixes altgr for Windows (see Arsenik issue #22)
   process-unmapped-keys yes
   windows-altgr cancel-lctl-press
+  ;; Mandatory as soon as `defchordsv2` is used.
+  concurrent-tap-hold yes
 )
 
 ;; vim: set ft=lisp
