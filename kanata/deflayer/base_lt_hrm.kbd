@@ -24,7 +24,7 @@
   sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
 
   ;; AltGr thumb key: Symbols layer while held, nothing when tapped.
-  ;; Enter is the [K]+[L] chord, see `kanata.kbd`.
+  ;; Enter is the [,]+[.] chord, see `kanata.kbd`.
   sym (layer-while-held symbols)
 
   ;; Home-row mods, GASC order (Gui / Alt / Shift / Ctrl, outer to inner).
