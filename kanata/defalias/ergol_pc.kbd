@@ -87,12 +87,12 @@
 )
 
 ;; Caps Word keyed by Ergo‑L glyphs, not QWERTY.
-;; Stops only on Space, comma (`m`), semicolon/colon (`p`).
+;; Stops on Space, comma (`m`), semicolon/colon (`p`), and physical `n`.
 ;; Hyphen/underscore (`-`) and period (`,`) keep the word going.
 ;;   `.` is M ; `;` is the right-pinky home key (both get shifted)
 (defalias
   capw (caps-word-custom-toggle 5000
-    (a b c d e f g h i j k l n o q r s t u v w x y z . ;)
+    (a b c d e f g h i j k l o q r s t u v w x y z . ;)
     (0 1 2 3 4 5 6 7 8 9 kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 bspc del up down left rght - ,)
   )
 )
