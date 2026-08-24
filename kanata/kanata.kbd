@@ -21,6 +21,8 @@
   long_hold_timeout 200
   ;; Both keys of a chord must be pressed within this delay.
   chord_timeout 40
+  ;; Home-row mods stay letters unless the keyboard was idle this long.
+  hrm_idle_timeout 500
 )
 
 (deflocalkeys-wintercept

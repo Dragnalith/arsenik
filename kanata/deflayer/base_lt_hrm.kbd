@@ -30,14 +30,15 @@
   ;; Home-row mods, GASC order (Gui / Alt / Shift / Ctrl, outer to inner).
   ;; `lalt` is used on both hands: `ralt` is AltGr on Windows and would fire
   ;; the layout's symbol layer instead of acting as a plain Alt.
-  aa (tap-hold $tap_timeout $long_hold_timeout a lmet)
-  ss (tap-hold $tap_timeout $long_hold_timeout s lalt)
-  dd (tap-hold $tap_timeout $long_hold_timeout d lsft)
-  ff (tap-hold $tap_timeout $long_hold_timeout f lctl)
-  jj (tap-hold $tap_timeout $long_hold_timeout j rctl)
-  kk (tap-hold $tap_timeout $long_hold_timeout k rsft)
-  ll (tap-hold $tap_timeout $long_hold_timeout l lalt)
-  scln (tap-hold $tap_timeout $long_hold_timeout ; rmet)
+  ;; Hold only works after $hrm_idle_timeout ms with no other key press.
+  aa (tap-hold $tap_timeout $long_hold_timeout a lmet (require-prior-idle $hrm_idle_timeout))
+  ss (tap-hold $tap_timeout $long_hold_timeout s lalt (require-prior-idle $hrm_idle_timeout))
+  dd (tap-hold $tap_timeout $long_hold_timeout d lsft (require-prior-idle $hrm_idle_timeout))
+  ff (tap-hold $tap_timeout $long_hold_timeout f lctl (require-prior-idle $hrm_idle_timeout))
+  jj (tap-hold $tap_timeout $long_hold_timeout j rctl (require-prior-idle $hrm_idle_timeout))
+  kk (tap-hold $tap_timeout $long_hold_timeout k rsft (require-prior-idle $hrm_idle_timeout))
+  ll (tap-hold $tap_timeout $long_hold_timeout l lalt (require-prior-idle $hrm_idle_timeout))
+  scln (tap-hold $tap_timeout $long_hold_timeout ; rmet (require-prior-idle $hrm_idle_timeout))
 )
 
 ;; vim: set ft=lisp
