@@ -25,7 +25,15 @@
   hrm_idle_timeout 500
 )
 
+;; The かな key: the built-in `kana` name resolves to KEY_HANGEUL on Windows,
+;; so name it after VK_DBE_KATAKANA (241) instead. Only the block matching the
+;; running binary is used, the others are ignored.
+
 (deflocalkeys-wintercept
+  mykana 241
+)
+
+(deflocalkeys-winiov2
   mykana 241
 )
 
